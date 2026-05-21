@@ -52,7 +52,7 @@ async function lookupIP() {
 
   try {
     const response = await fetch(
-      `http://ip-api.com/json/${ip}?fields=status,message,query,city,regionName,country,org,timezone,lat,lon`
+      `https://ip-api.com/json/${ip}?fields=status,message,query,city,regionName,country,org,timezone,lat,lon`
     );
 
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
