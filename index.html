@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IntelTrace — OSINT Intelligence Platform</title>
+  <meta name="description" content="IntelTrace is an open-source intelligence platform for researchers, cybersecurity professionals, and students." />
+  <link rel="icon" href="media/logo.png" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Clean, simple hero layout */
+    .hero-v2 {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      position: relative; z-index: 5;
+      padding: 100px 1rem;
+    }
+    .hero-main-title {
+      font-family: var(--brand); 
+      /* FIXED: Lowered the minimum size from 3.5rem to 2.2rem so it fits on mobile */
+      font-size: clamp(2.2rem, 10vw, 7rem);
+      font-weight: 900; letter-spacing: 2px; margin-bottom: 0.5rem;
+      word-wrap: break-word;
+    }
+    .hero-main-title .cyan { color: var(--cyan); }
+    .hero-main-title .green { color: var(--green); }
+    
+    .status-pill { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--muted); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+    .status-dot.yellow { background: #ffaa00; }
+    .status-dot.cyan { background: var(--cyan); }
+  </style>
+</head>
+<body>
+
+<video id="siteBg" src="media/bg.mp4" autoplay muted loop playsinline></video>
+<div class="video-overlay"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Intel<span>Trace</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+        <li class="nav-item"><a class="nav-link" href="investigate.html">Investigate</a></li>
+        <li class="nav-item"><a class="nav-link" href="casestudies.html">Case Studies</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-v2">
+  <div class="container text-center">
+    
+    <div class="mb-3">
+      <span style="font-size: 0.8rem; color: var(--cyan); letter-spacing: 2px;">OPEN SOURCE INTELLIGENCE PLATFORM</span>
+    </div>
+
+    <h1 class="hero-main-title">
+      <span class="cyan">INTEL</span><span class="green">TRACE</span>
+    </h1>
+
+    <h4 style="color: var(--green); margin-bottom: 1.5rem;">Digital Investigation Framework</h4>
+
+    <p style="color: var(--muted); max-width: 520px; margin: 0 auto 2rem; line-height: 1.8;">
+      A next-generation OSINT platform for digital investigators. Trace usernames,
+      decode image metadata, map domains, and geolocate IPs — all running entirely in your browser.
+    </p>
+
+    <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+      <div class="status-pill"><div class="status-dot"></div> TOOLS ONLINE</div>
+      <div class="status-pill"><div class="status-dot yellow"></div> IP API LIVE</div>
+      <div class="status-pill"><div class="status-dot cyan"></div> NO SERVER</div>
+    </div>
+
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <a href="investigate.html" class="btn-cyber">
+        <i class="bi bi-search-heart me-2"></i>[ INVESTIGATE NOW ]
+      </a>
+      <a href="tools.html" class="btn-cyber btn-cyber-green">
+        <i class="bi bi-grid me-2"></i>[ VIEW TOOLS ]
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:4rem 0;background:var(--bg2);border-bottom:1px solid var(--border);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4 mb-md-0">
+        <div class="stat-num">4</div>
+        <div class="stat-label">OSINT TOOLS</div>
+      </div>
+      <div class="col-md-3 mb-4 mb-md-0">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">PLATFORMS CHECKED</div>
+      </div>
+      <div class="col-md-3 mb-4 mb-md-0">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">CLIENT-SIDE</div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-num" style="color:var(--green);">FREE</div>
+        <div class="stat-label">ALWAYS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:5rem 0;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Operational <span>Capabilities</span></h2>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="investigate.html#username" style="text-decoration:none;">
+          <div class="cyber-card">
+            <div style="font-size:2rem; color:var(--cyan); margin-bottom:1rem;"><i class="bi bi-person-badge"></i></div>
+            <div class="card-title">USERNAME FINDER</div>
+            <p class="card-text">Sweep 6 major platforms simultaneously. GitHub, Twitter, Instagram, Reddit, TikTok, LinkedIn.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <a href="investigate.html#metadata" style="text-decoration:none;">
+          <div class="cyber-card">
+            <div style="font-size:2rem; color:var(--green); margin-bottom:1rem;"><i class="bi bi-image"></i></div>
+            <div class="card-title">IMAGE METADATA</div>
+            <p class="card-text">Extract hidden EXIF data from any photo. GPS coordinates, camera model, and timestamps.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <a href="investigate.html#domain" style="text-decoration:none;">
+          <div class="cyber-card">
+            <div style="font-size:2rem; color:#aa88ff; margin-bottom:1rem;"><i class="bi bi-globe2"></i></div>
+            <div class="card-title">DOMAIN INTEL</div>
+            <p class="card-text">WHOIS-style intelligence on any domain. Registrar, dates, name servers, and status flags.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <a href="investigate.html#ip" style="text-decoration:none;">
+          <div class="cyber-card">
+            <div style="font-size:2rem; color:#ffaa00; margin-bottom:1rem;"><i class="bi bi-geo-alt"></i></div>
+            <div class="card-title">IP INTELLIGENCE</div>
+            <p class="card-text">Live geolocation via real API. City, ISP, timezone, ASN — plotted on a map in real time.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 5rem;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">How <span>It Works</span></h2>
+    </div>
+    
+    <div class="row g-4 text-center">
+      <div class="col-md-3">
+        <div class="cyber-card">
+          <i class="bi bi-crosshair" style="font-size: 2rem; color: var(--cyan);"></i>
+          <h6 class="mt-3" style="color: var(--text); font-family: var(--brand);">1. DEFINE TARGET</h6>
+          <p style="font-size: 0.8rem; color: var(--muted);">Enter a username, IP, or upload an image.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="cyber-card">
+          <i class="bi bi-cpu" style="font-size: 2rem; color: var(--green);"></i>
+          <h6 class="mt-3" style="color: var(--text); font-family: var(--brand);">2. COLLECT DATA</h6>
+          <p style="font-size: 0.8rem; color: var(--muted);">IntelTrace sweeps platforms and APIs locally.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="cyber-card">
+          <i class="bi bi-diagram-3" style="font-size: 2rem; color: #aa88ff;"></i>
+          <h6 class="mt-3" style="color: var(--text); font-family: var(--brand);">3. CORRELATE</h6>
+          <p style="font-size: 0.8rem; color: var(--muted);">Cross-reference findings to spot patterns.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="cyber-card">
+          <i class="bi bi-file-earmark-text" style="font-size: 2rem; color: #ffaa00;"></i>
+          <h6 class="mt-3" style="color: var(--text); font-family: var(--brand);">4. REPORT</h6>
+          <p style="font-size: 0.8rem; color: var(--muted);">Document results within legal limits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand mb-2">IntelTrace</div>
+    <div class="footer-links mb-3">
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="casestudies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>IntelTrace &copy; 2026 | OSINT Platform | Educational Use Only</div>
+  </div>
+</footer>
+
+<a id="backToTop" href="#"><i class="bi bi-arrow-up"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

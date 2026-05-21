@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — IntelTrace OSINT Platform</title>
+  <link rel="icon" href="media/logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<video id="siteBg" src="media/bg.mp4" autoplay muted loop playsinline></video>
+<div class="video-overlay"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Intel<span>Trace</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="tools.html">Tools</a></li>
+        <li class="nav-item"><a class="nav-link" href="investigate.html">Investigate</a></li>
+        <li class="nav-item"><a class="nav-link" href="casestudies.html">Case Studies</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container text-center">
+    <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Intelligence <span>Modules</span></h1>
+    <p style="color: var(--muted); font-size: 0.9rem; max-width: 550px; margin: 1rem auto 0;">
+      Four specialized OSINT tools — each designed for a specific investigation task. Click "Use Tool" to open the module.
+    </p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+
+    <div class="cyber-card mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-1 col-12 text-center text-md-start">
+          <i class="bi bi-person-badge" style="font-size: 2.5rem; color: var(--cyan);"></i>
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex align-items-center flex-wrap gap-2 mb-2 justify-content-center justify-content-md-start">
+            <span class="tool-badge tool-badge-cyan">RECONNAISSANCE</span>
+            <span class="tool-badge tool-badge-green">SOCIAL MEDIA</span>
+          </div>
+          <h3 class="card-title text-center text-md-start">USERNAME FINDER</h3>
+          <p class="card-text mb-3 text-center text-md-start">
+            Enter any username and IntelTrace will simulate a sweep across 6 major social platforms — GitHub, Twitter/X, Instagram, Reddit, TikTok, and LinkedIn. 
+          </p>
+          <div class="row g-2 text-center text-md-start">
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>GitHub</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>Twitter/X</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>Instagram</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>Reddit</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>TikTok</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>LinkedIn</div></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+          <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; text-align: left; display: inline-block;">
+            <div><span class="t-key">Input:</span> <span>Alphanumeric username</span></div>
+            <div><span class="t-key">Output:</span> <span>Found / Not Found</span></div>
+            <div><span class="t-key">Privacy:</span> <span>100% Local</span></div>
+          </div>
+          <br>
+          <a href="investigate.html#username" class="btn-cyber w-100">USE TOOL &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cyber-card mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-1 col-12 text-center text-md-start">
+          <i class="bi bi-image" style="font-size: 2.5rem; color: var(--green);"></i>
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex align-items-center flex-wrap gap-2 mb-2 justify-content-center justify-content-md-start">
+            <span class="tool-badge tool-badge-green">FORENSICS</span>
+            <span class="tool-badge tool-badge-cyan">GEOLOCATION</span>
+          </div>
+          <h3 class="card-title text-center text-md-start">IMAGE METADATA ANALYZER</h3>
+          <p class="card-text mb-3 text-center text-md-start">
+            Upload any JPEG, PNG, or GIF image to extract hidden EXIF metadata. If GPS coordinates are present, they are plotted on an interactive map.
+          </p>
+          <div class="row g-2 text-center text-md-start">
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>Camera Make</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>GPS Location</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: var(--green);"></i>Date & Time</div></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+          <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; text-align: left; display: inline-block;">
+            <div><span class="t-key">Input:</span> <span>JPG, PNG, GIF</span></div>
+            <div><span class="t-key">Output:</span> <span>EXIF table + Map</span></div>
+            <div><span class="t-key">Library:</span> <span>exifr.js (Client-side)</span></div>
+          </div>
+          <br>
+          <a href="investigate.html#metadata" class="btn-cyber btn-cyber-green w-100">USE TOOL &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cyber-card mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-1 col-12 text-center text-md-start">
+          <i class="bi bi-globe2" style="font-size: 2.5rem; color: #aa88ff;"></i>
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex align-items-center flex-wrap gap-2 mb-2 justify-content-center justify-content-md-start">
+            <span class="tool-badge" style="color: #aa88ff; border-color: #aa88ff;">WHOIS</span>
+            <span class="tool-badge tool-badge-cyan">DNS</span>
+          </div>
+          <h3 class="card-title text-center text-md-start">DOMAIN INTELLIGENCE</h3>
+          <p class="card-text mb-3 text-center text-md-start">
+            Enter any domain name to receive a realistic WHOIS-style intelligence report, displayed in a terminal interface.
+          </p>
+          <div class="row g-2 text-center text-md-start">
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #aa88ff;"></i>Registrar Info</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #aa88ff;"></i>Creation Dates</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #aa88ff;"></i>Name Servers</div></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+          <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; text-align: left; display: inline-block;">
+            <div><span class="t-key">Input:</span> <span>Domain (example.com)</span></div>
+            <div><span class="t-key">Output:</span> <span>Terminal Report</span></div>
+            <div><span class="t-key">Privacy:</span> <span>100% Local</span></div>
+          </div>
+          <br>
+          <a href="investigate.html#domain" class="btn-cyber w-100" style="border-color: #aa88ff; color: #aa88ff;">USE TOOL &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cyber-card mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-1 col-12 text-center text-md-start">
+          <i class="bi bi-geo-alt" style="font-size: 2.5rem; color: #ffaa00;"></i>
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex align-items-center flex-wrap gap-2 mb-2 justify-content-center justify-content-md-start">
+            <span class="tool-badge tool-badge-orange">GEOLOCATION</span>
+            <span class="tool-badge tool-badge-cyan">LIVE API</span>
+          </div>
+          <h3 class="card-title text-center text-md-start">IP INTELLIGENCE LOOKUP</h3>
+          <p class="card-text mb-3 text-center text-md-start">
+            Enter any IPv4 address to retrieve real-time geolocation data via the ipapi.co public API. Includes an interactive live map.
+          </p>
+          <div class="row g-2 text-center text-md-start">
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #ffaa00;"></i>City / Region</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #ffaa00;"></i>ISP Name</div></div>
+            <div class="col-6 col-sm-4"><div style="font-size: 0.78rem; color: var(--muted);"><i class="bi bi-check-circle me-1" style="color: #ffaa00;"></i>Map Plotting</div></div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center text-md-end mt-4 mt-md-0">
+          <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; text-align: left; display: inline-block;">
+            <div><span class="t-key">Input:</span> <span>IPv4 address</span></div>
+            <div><span class="t-key">Output:</span> <span>Geo Data + Map</span></div>
+            <div><span class="t-key">API:</span> <span>ipapi.co (Free)</span></div>
+          </div>
+          <br>
+          <a href="investigate.html#ip" class="btn-cyber w-100" style="border-color: #ffaa00; color: #ffaa00;">USE TOOL &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand mb-2">IntelTrace</div>
+    <div class="footer-links mb-3">
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="casestudies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>IntelTrace &copy; 2026 | OSINT Platform | Educational Use Only</div>
+  </div>
+</footer>
+
+<a id="backToTop" href="#" title="Back to top"><i class="bi bi-arrow-up"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

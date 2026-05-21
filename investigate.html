@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investigate — IntelTrace OSINT Platform</title>
+  <meta name="description" content="Use IntelTrace's interactive OSINT tools: Username Finder, Image Metadata Analyzer, Domain Intelligence, and IP Lookup." />
+  <link rel="icon" href="media/logo.png" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<video id="siteBg" src="media/bg.mp4" autoplay muted loop playsinline></video>
+<div class="video-overlay"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Intel<span>Trace</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+        <li class="nav-item"><a class="nav-link active" href="investigate.html">Investigate</a></li>
+        <li class="nav-item"><a class="nav-link" href="casestudies.html">Case Studies</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero" style="padding-bottom: 2rem;">
+  <div class="container text-center">
+    <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Investigation <span>Platform</span></h1>
+    <p style="color: var(--muted); font-size: 0.9rem; max-width: 550px; margin: 1rem auto 0;">
+      Select a tool tab below to begin your investigation. All tools run in your browser.
+    </p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    
+    <ul class="nav nav-tabs" id="investigateTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-username" data-bs-toggle="tab" data-bs-target="#pane-username" type="button" role="tab">
+          <i class="bi bi-person-badge me-1"></i> USERNAME
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-metadata" data-bs-toggle="tab" data-bs-target="#pane-metadata" type="button" role="tab">
+          <i class="bi bi-image me-1"></i> METADATA
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-domain" data-bs-toggle="tab" data-bs-target="#pane-domain" type="button" role="tab">
+          <i class="bi bi-globe2 me-1"></i> DOMAIN
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-ip" data-bs-toggle="tab" data-bs-target="#pane-ip" type="button" role="tab">
+          <i class="bi bi-geo-alt me-1"></i> IP GEO
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content cyber-card" id="investigateTabContent">
+
+      <div class="tab-pane fade show active" id="pane-username" role="tabpanel">
+        <div class="section-label mb-1">// USERNAME RECONNAISSANCE</div>
+        <h5 style="color: var(--text); font-family: var(--brand); font-size: 1rem; margin-bottom: 1rem;">Find username across platforms</h5>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem;">
+          Enter a username to simulate a search across GitHub, Twitter, Instagram, Reddit, TikTok, and LinkedIn.
+        </p>
+        
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
+          <input type="text" id="usernameInput" class="cyber-input flex-grow-1" placeholder="Enter username..." autocomplete="off" />
+          <button id="usernameSearch" class="btn-cyber" onclick="searchUsername()">
+            <i class="bi bi-search me-1"></i> SEARCH
+          </button>
+        </div>
+        
+        <div id="usernameStatus" class="d-flex align-items-center gap-2 mb-3" style="display:none;">
+          <span class="cyber-spinner"></span>
+          <span id="usernameStatusText" style="color: var(--cyan);">Scanning platforms...</span>
+        </div>
+        <div id="usernameResults"></div>
+      </div>
+
+      <div class="tab-pane fade" id="pane-metadata" role="tabpanel">
+        <div class="section-label mb-1">// IMAGE FORENSICS</div>
+        <h5 style="color: var(--text); font-family: var(--brand); font-size: 1rem; margin-bottom: 1rem;">Extract EXIF metadata</h5>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem;">
+          Upload a JPEG, PNG, or GIF to extract embedded metadata. GPS coordinates will be plotted on a map.
+        </p>
+        <div class="mb-4">
+          <label class="form-label" for="metadataFile">SELECT IMAGE FILE</label>
+          <input type="file" id="metadataFile" class="cyber-input w-100" accept="image/jpeg,image/png,image/gif,image/jpg" onchange="analyzeMetadata(this)" />
+        </div>
+        <div id="metadataSpinner" class="d-flex align-items-center gap-2 mb-3" style="display:none;">
+          <span class="cyber-spinner"></span>
+          <span style="font-size:0.85rem; color: var(--green);">Extracting metadata...</span>
+        </div>
+        <div id="metadataResults"></div>
+        <div id="metadataMap" class="map-container" style="display:none;"></div>
+      </div>
+
+      <div class="tab-pane fade" id="pane-domain" role="tabpanel">
+        <div class="section-label mb-1">// DOMAIN INVESTIGATION</div>
+        <h5 style="color: var(--text); font-family: var(--brand); font-size: 1rem; margin-bottom: 1rem;">WHOIS-style domain intelligence</h5>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem;">
+          Enter a domain name to retrieve simulated WHOIS registration data, name servers, and status flags.
+        </p>
+        
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
+          <input type="text" id="domainInput" class="cyber-input flex-grow-1" placeholder="e.g. google.com" autocomplete="off" />
+          <button class="btn-cyber" style="border-color: #aa88ff; color: #aa88ff;" onclick="lookupDomain()">
+            <i class="bi bi-search me-1"></i> LOOKUP
+          </button>
+        </div>
+        
+        <div id="domainSpinner" class="d-flex align-items-center gap-2 mb-3" style="display:none;">
+          <span class="cyber-spinner" style="border-top-color: #aa88ff;"></span>
+          <span style="font-size:0.85rem; color: #aa88ff;">Querying database...</span>
+        </div>
+        <div id="domainResults"></div>
+      </div>
+
+      <div class="tab-pane fade" id="pane-ip" role="tabpanel">
+        <div class="section-label mb-1">// IP GEOLOCATION</div>
+        <h5 style="color: var(--text); font-family: var(--brand); font-size: 1rem; margin-bottom: 1rem;">Real-time IP address intelligence</h5>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem;">
+          Enter an IPv4 address to fetch live geolocation data via ipapi.co. Location is pinpointed on a map.
+        </p>
+        
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
+          <input type="text" id="ipInput" class="cyber-input flex-grow-1" placeholder="e.g. 8.8.8.8" autocomplete="off" />
+          <button class="btn-cyber" style="border-color: #ffaa00; color: #ffaa00;" onclick="lookupIP()">
+            <i class="bi bi-search me-1"></i> LOOKUP
+          </button>
+        </div>
+        
+        <div id="ipSpinner" class="d-flex align-items-center gap-2 mb-3" style="display:none;">
+          <span class="cyber-spinner" style="border-top-color: #ffaa00;"></span>
+          <span style="font-size:0.85rem; color: #ffaa00;">Fetching IP intelligence...</span>
+        </div>
+        <div id="ipResults"></div>
+        <div id="ipMap" class="map-container" style="display:none;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand mb-2">IntelTrace</div>
+    <div class="footer-links mb-3">
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="casestudies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>IntelTrace &copy; 2026 | OSINT Platform | Educational Use Only</div>
+  </div>
+</footer>
+
+<a id="backToTop" href="#" title="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+
+<script src="backend/username.js"></script>
+<script src="backend/metadata.js"></script>
+<script src="backend/domain.js"></script>
+<script src="backend/ip.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hash = window.location.hash.replace('#', '');
+    const tabMap = { username: 'tab-username', metadata: 'tab-metadata', domain: 'tab-domain', ip: 'tab-ip' };
+    if (hash && tabMap[hash]) {
+      const el = document.getElementById(tabMap[hash]);
+      if (el) {
+          const tab = new bootstrap.Tab(el);
+          tab.show();
+      }
+    }
+    
+    // Press 'Enter' to search
+    document.getElementById('usernameInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') searchUsername(); });
+    document.getElementById('domainInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') lookupDomain(); });
+    document.getElementById('ipInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') lookupIP(); });
+  });
+</script>
+</body>
+</html>
