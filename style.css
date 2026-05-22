@@ -431,6 +431,10 @@ textarea.cyber-input {
 
 /* ===== 13. FOOTER & BACK TO TOP ===== */
 footer { 
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
   background: var(--bg2); 
   border-top: 1px solid var(--border); 
   padding: 2rem 0; 
