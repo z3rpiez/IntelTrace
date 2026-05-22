@@ -491,7 +491,7 @@ footer .footer-links a:hover { color: var(--cyan); }
   position: fixed; 
   inset: 0; 
   z-index: 1;
-  background: rgba(0, 27, 43, 0.603); 
+  background: rgba(5, 8, 28, 0.714);
 }
 
 @media (max-width: 768px) {
