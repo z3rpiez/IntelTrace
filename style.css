@@ -24,6 +24,8 @@ body {
   font-family: var(--mono);
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Custom scrollbar */
@@ -431,10 +433,7 @@ textarea.cyber-input {
 
 /* ===== 13. FOOTER & BACK TO TOP ===== */
 footer { 
-  position: fixed;
-  bottom:0;
-  left:0;
-  width:100%;
+  margin-top: auto;
   background: var(--bg2); 
   border-top: 1px solid var(--border); 
   padding: 2rem 0; 
